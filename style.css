@@ -1,0 +1,84 @@
+/* Reset box sizing for consistent layout */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); /* Gradient background */
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Search container styling */
+.search-container {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border: 2px solid #fda085;
+  border-radius: 30px; /* Rounded search bar */
+  outline: none;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.search-container input:focus {
+  border-color: #f6d365;
+  box-shadow: 0 0 8px rgba(255, 173, 128, 0.8); /* Glow effect */
+}
+
+/* Suggestions dropdown */
+.suggestions {
+  position: absolute;
+  top: 110%; /* Slightly below the search bar */
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 2px solid #fda085;
+  border-radius: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  display: none; /* Hidden by default */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.suggestions ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.suggestions ul li {
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.suggestions ul li:hover {
+  background-color: #f6d365;
+  color: #fff; /* Highlighted text */
+}
+
+/* Show suggestions when there are results */
+.suggestions.has-suggestions {
+  display: block;
+}
+
+/* Styling for strong matches in the dropdown */
+.suggestions ul li strong {
+  color: #fda085;
+}
